@@ -5,32 +5,37 @@ const int echoPin = 11;
 long duration;
 int distance;
 
+Servo myServo;
+
 void setup() {
   pinMode(trigPin,OUTPUT);
   pinMode(echoPin,INPUT);
   Serial.begin(9600);
   myServo.attach(12);
+  myServo.write(15);
 }
 
 void loop() {
-  for (int i=15;i<=165;i++){
+  for (int i=5;i<=175;i++){
   myServo.write(i);
   delay(30);  //延迟30毫秒
   distance = calculateDistance();
+  Serial.print(".");
   Serial.print(i);
-  Serial.print(',');
+  Serial.print(".");
   Serial.print(distance);
-  Serial.println('.');
+  Serial.println(".");
   }
 
-  for (int i=165;i<=15;i--){
+  for (int i=175;i>=5;i--){
   myServo.write(i);
   delay(30);  //延迟30毫秒
   distance = calculateDistance();
+  Serial.print(".");
   Serial.print(i);
-  Serial.print(',');
+  Serial.print(".");
   Serial.print(distance);
-  Serial.println('.');
+  Serial.println(".");
   }
 
 }
@@ -44,11 +49,9 @@ int calculateDistance(){
     digitalWrite(trigPin,LOW);
     duration = pulseIn(echoPin,HIGH);  //计算echoPin脚高电平的时间
     distance = duration*0.034/2;
-    if (distance <= 30)
+    if (distance <= 45)
         return distance;
     else 
-        return -1;
+        return 500;
 
 }
-
-// test
