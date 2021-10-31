@@ -14,6 +14,7 @@ x = 40
 y = 40
 
 # width of each bar
+
 width = 20
 
 # height of each bar (data to be sorted)
