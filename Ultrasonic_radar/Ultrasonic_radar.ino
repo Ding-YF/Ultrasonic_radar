@@ -4,6 +4,7 @@ const int trigPin = 10;
 const int echoPin = 11;
 long duration;
 int distance;
+int LED = 9;
 
 Servo myServo;
 
@@ -13,6 +14,7 @@ void setup() {
   Serial.begin(9600);
   myServo.attach(12);
   myServo.write(15);
+  pinMode(LED,OUTPUT);
 }
 
 void loop() {
@@ -20,6 +22,14 @@ void loop() {
   myServo.write(i);
   delay(30);  //延迟30毫秒
   distance = calculateDistance();
+  if (distance<=5)
+  {
+    digitalWrite(LED,HIGH);
+  }
+  else{
+    digitalWrite(LED,LOW);
+  }
+  Serial.print(123);
   Serial.print(".");
   Serial.print(i);
   Serial.print(".");
@@ -31,6 +41,14 @@ void loop() {
   myServo.write(i);
   delay(30);  //延迟30毫秒
   distance = calculateDistance();
+  if (distance<=5)
+  {
+    Serial.print(666666);
+  }
+//   else{
+//     digitalWrite(LED,LOW);
+//   }
+  Serial.print(321);
   Serial.print(".");
   Serial.print(i);
   Serial.print(".");
