@@ -70,7 +70,7 @@ while True:
     if len(chlist) >=4:  #当切片后的列表长度大于4时才是接收到的完整数据
         chlit_temp = int(chlist[2])
         if (chlit_temp < 5):
-            ser.write("5555".encode('utf-8'))
+            ser.write("Close Warning!!!".encode('utf-8'))
         chlit_temp=500
         distance=float(chlist[2]) #获取超声波测距数据，转为浮点数
         index = int(chlist[1])  #获取舵机的角度，转为整数
