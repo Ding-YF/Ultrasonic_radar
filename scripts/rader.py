@@ -71,7 +71,6 @@ while True:
         chlit_temp = int(chlist[2])
         if (chlit_temp < 5):
             ser.write("5555".encode('utf-8'))
-            #time.sleep(0.5)
         chlit_temp=500
         distance=float(chlist[2]) #获取超声波测距数据，转为浮点数
         index = int(chlist[1])  #获取舵机的角度，转为整数

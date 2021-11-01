@@ -29,7 +29,6 @@ void loop() {
   else{
     digitalWrite(LED,LOW);
   }
-  Serial.print(123);
   Serial.print(".");
   Serial.print(i);
   Serial.print(".");
@@ -43,12 +42,12 @@ void loop() {
   distance = calculateDistance();
   if (distance<=5)
   {
-    Serial.print(666666);
+    digitalWrite(LED,HIGH);
   }
-//   else{
-//     digitalWrite(LED,LOW);
-//   }
-  Serial.print(321);
+  else{
+    digitalWrite(LED,LOW);
+  }
+
   Serial.print(".");
   Serial.print(i);
   Serial.print(".");
